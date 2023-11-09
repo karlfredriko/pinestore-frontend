@@ -1,24 +1,27 @@
-import axios from "axios";
 import { Pine } from "../models/pine";
-import { Response } from "../models/response";
 
 const BASE_URL = "http://localhost:3001/api/v1/grangarden/";
 
-export const getData = async (
-  endpoint: string,
-  id?: number
-): Promise<Response> => {
+export type PineListLoaderResponse = {
+  status: string;
+  statusCode: number;
+  data: Pine[];
+  error: null | string;
+};
+
+export const getData = async <T,>(endpoint: string, id?: number) => {
   let url: string = `${BASE_URL}${endpoint}`;
   if (id) {
     url += `/${id}`;
   }
-  const res = await axios.get(url);
-  // console.log(res);
-  return res.data as Response;
+  const res = await fetch(url);
+  const json = (await res.json()) as unknown;
+  console.log(json);
+  return json as T;
 };
 
-export const pineListLoader = async (): Promise<Pine[]> => {
-  const res = await getData("pines");
+export const pineListLoader = async () => {
+  const res = await getData<PineListLoaderResponse>("pines");
   return res.data as Pine[];
 };
 

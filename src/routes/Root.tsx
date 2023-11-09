@@ -12,7 +12,7 @@ const Root = () => {
 
   useEffect(() => {
     setPineList(data);
-  }, [data]);
+  }, []); //Jag får en varning här, att den vill ha [data], men jag vill bara bara useEffect vid mounting, såatte..
   return (
     <>
       <Header cart={cart} />
