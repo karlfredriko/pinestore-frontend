@@ -16,7 +16,6 @@ export const getData = async <T,>(endpoint: string, id?: number) => {
   }
   const res = await fetch(url);
   const json = (await res.json()) as unknown;
-  console.log(json);
   return json as T;
 };
 
