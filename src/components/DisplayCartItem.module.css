@@ -1,0 +1,22 @@
+.container {
+  background-color: var(--light-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: -webkit-fill-available;
+  border: 2px outset var(--primary-font-color);
+  border-radius: 4px;
+  padding: 0 2rem;
+}
+.amountTrashContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.icon {
+  color: var(--primary-font-color);
+  font-size: 20px;
+}
+.icon:hover {
+  cursor: pointer;
+}

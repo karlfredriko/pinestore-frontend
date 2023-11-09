@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+}
+
+.cart {
+  font-size: 40px;
+  color: #a9a9a9;
+}
+.cart:hover {
+  color: var(--primary-font-color);
+  cursor: pointer;
+}
+.redDot {
+  position: absolute;
+  top: -35%;
+  right: 5%;
+  background-color: red;
+  border-radius: 100%;
+  color: aliceblue;
+  font-weight: 600;
+  width: 1.5rem;
+  height: 1.5rem;
+}

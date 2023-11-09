@@ -1,0 +1,33 @@
+.container {
+  border: 1px solid var(--primary-font-color);
+  border-radius: 4px;
+  width: 300px;
+  min-height: 500px;
+  position: relative;
+}
+.img {
+  width: -webkit-fill-available;
+}
+.name {
+  position: absolute;
+  left: 5%;
+  bottom: 30%;
+}
+.desc {
+  position: absolute;
+  bottom: 10%;
+  font-weight: 600;
+  margin: 0.5rem;
+}
+.price {
+  position: absolute;
+  right: 5%;
+  bottom: 25%;
+  font-size: x-large;
+}
+.button {
+  position: absolute;
+  bottom: 3%;
+  right: 5%;
+  font-size: large;
+}
