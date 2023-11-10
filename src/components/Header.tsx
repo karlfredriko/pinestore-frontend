@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { FC } from "react";
 
 type HeaderProps = {
-  cart: Cart[]
-}
+  cart: Cart[];
+};
 
 const Header: FC<HeaderProps> = ({ cart }) => {
   return (

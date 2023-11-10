@@ -16,7 +16,6 @@ export const getData = async <T,>(endpoint: string, id?: number) => {
   }
   const res = await fetch(url);
   const json = (await res.json()) as unknown;
-  console.log(json);
   return json as T;
 };
 
@@ -28,9 +27,9 @@ export const pineListLoader = async () => {
 export const showConfirmationModal = (isPine: boolean, pine?: string) => {
   const modal = document.querySelector("#modal") as HTMLDivElement;
   if (isPine) {
-    modal.innerText = `En ${pine} har lagts i din kundkorg.`;
+    modal.textContent = `En ${pine} har lagts i din kundkorg.`;
   } else {
-    modal.innerText = `Tack för att du handlade av oss!`;
+    modal.textContent = `Tack för att du handlade av oss!`;
   }
   modal.style.display = "block";
   setTimeout(() => {
