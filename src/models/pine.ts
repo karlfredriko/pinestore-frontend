@@ -4,4 +4,5 @@ export interface Pine {
   name: string;
   price: number;
   picture: string;
+  stock: number;
 }

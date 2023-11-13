@@ -1,8 +1,8 @@
 .container {
   border: 1px solid var(--primary-font-color);
   border-radius: 4px;
-  width: 300px;
-  min-height: 400px;
+  width: 500px;
+  min-height: 700px;
   position: relative;
 }
 .img {
@@ -11,29 +11,32 @@
 .name {
   position: absolute;
   left: 5%;
-  bottom: 14%;
+  bottom: 20%;
+  font-size: 32px;
 }
-/* .desc {
+.desc {
   position: absolute;
-  bottom: 10%;
+  bottom: 8%;
   font-weight: 600;
+  font-size: 22px;
   margin: 0.5rem;
-} */
+}
 .price {
   position: absolute;
   right: 5%;
-  bottom: 8%;
-  font-size: x-large;
+  bottom: 15%;
+  font-size: 32px;
+}
+.stock {
+  position: absolute;
+  margin: 0;
+  font-size: 20px;
+  bottom: 3%;
+  left: 5%;
 }
 .button {
   position: absolute;
   font-size: large;
-}
-.left {
-  bottom: 3%;
-  left: 5%;
-}
-.right {
   bottom: 3%;
   right: 5%;
 }

@@ -1,5 +1,5 @@
 import { Dispatch, FC, SetStateAction } from "react";
-import { Cart } from "../models/cart";
+import { Cart } from "../models/cartItem";
 import s from "./DisplayCartItem.module.css";
 import { useOutletContext } from "react-router-dom";
 

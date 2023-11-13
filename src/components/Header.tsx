@@ -1,13 +1,24 @@
 import ShoppingCartIcon from "./ShoppingCartIcon";
-import { Cart } from "../models/cart";
+import { Cart } from "../models/cartItem";
 import { Link } from "react-router-dom";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { getStoreData } from "../utils/httpClient";
+import { StoreInfo } from "../models/storeInfo";
 
 type HeaderProps = {
   cart: Cart[];
 };
 
 const Header: FC<HeaderProps> = ({ cart }) => {
+  const [storeInfo, setStoreInfo] = useState<StoreInfo>();
+  useEffect(() => {
+    const loader = async () => {
+      const data = await getStoreData();
+      setStoreInfo(data);
+    };
+    loader();
+  }, []);
+
   return (
     <header>
       <div>
@@ -21,8 +32,12 @@ const Header: FC<HeaderProps> = ({ cart }) => {
       </div>
       <div>
         <Link to={"/"}>
-          <h1>GranGården</h1>
-          <small>Köp din gran hos oss</small>
+          {storeInfo && (
+            <>
+              <h1>{storeInfo?.storeName}</h1>
+              <small>{storeInfo?.mantra}</small>
+            </>
+          )}
         </Link>
       </div>
       <div>

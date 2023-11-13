@@ -1,5 +1,5 @@
 import s from "./ShoppingCartIcon.module.css";
-import { Cart } from "../models/cart";
+import { Cart } from "../models/cartItem";
 import { FC, useEffect, useState } from "react";
 
 type ShoppingCartIconProps = {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 import { Pine } from "../models/pine";
-import { Cart } from "../models/cart";
+import { Cart } from "../models/cartItem";
 import Header from "../components/Header";
 
 const Root = () => {
@@ -12,7 +12,7 @@ const Root = () => {
 
   useEffect(() => {
     setPineList(data);
-  }, []); //Jag får en varning här, att den vill ha [data], men jag vill bara bara useEffect vid mounting, såatte..
+  }, []); //ignore
   return (
     <>
       <Header cart={cart} />

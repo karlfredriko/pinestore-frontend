@@ -1,12 +1,12 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
-import { Cart } from "../models/cart";
+import { CartItem } from "../models/cartItem";
 import DisplayCartItem from "../components/DisplayCartItem";
-import { showConfirmationModal } from "../utils/helper";
+import { closeTheDealModal } from "../utils/helper";
 
 type CartPageContext = {
-  cart: Cart[];
-  setCart: Dispatch<SetStateAction<Cart[]>>;
+  cart: CartItem[];
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
 };
 
 const CartPage = () => {
@@ -16,7 +16,7 @@ const CartPage = () => {
   const closeDealHandler = () => {
     setCart([]);
     navigate("/");
-    showConfirmationModal(false);
+    closeTheDealModal();
   };
 
   return (
@@ -29,7 +29,7 @@ const CartPage = () => {
           Avsluta köpet
         </button>
       ) : (
-        <h2>Här var det tomt. :(</h2>
+        <h2>Din kundkorg är tom!</h2>
       )}
     </>
   );

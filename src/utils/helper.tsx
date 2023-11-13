@@ -1,38 +1,54 @@
-import { Pine } from "../models/pine";
+import { CartItem } from "../models/cartItem";
 
-const BASE_URL = "http://localhost:3001/api/v1/grangarden/";
-
-export type PineListLoaderResponse = {
-  status: string;
-  statusCode: number;
-  data: Pine[];
-  error: null | string;
+export const closeTheDealModal = () => {
+  const modalElem = document.querySelector("#modal") as HTMLDivElement;
+  modalElem.textContent = `Tack för ditt köp och välkommen åter`;
+  modalElem.style.display = "block";
+  setTimeout(() => (modalElem.style.display = "none"), 1200);
 };
 
-export const getData = async <T,>(endpoint: string, id?: number) => {
-  let url: string = `${BASE_URL}${endpoint}`;
-  if (id) {
-    url += `/${id}`;
-  }
-  const res = await fetch(url);
-  const json = (await res.json()) as unknown;
-  return json as T;
+export const confirmNewCartItemModal = (pineName: string) => {
+  const modalElem = document.querySelector("#modal") as HTMLDivElement;
+  modalElem.textContent = `En ${pineName} har lagts i din kundkorg.`;
+  modalElem.style.display = "block";
+  setTimeout(() => (modalElem.style.display = "none"), 1200);
 };
 
-export const pineListLoader = async () => {
-  const res = await getData<PineListLoaderResponse>("pines");
-  return res.data as Pine[];
+export const outOfStockModal = (pineName: string) => {
+  const modalElem = document.querySelector("#modal") as HTMLDivElement;
+  modalElem.textContent = `${pineName} är tyvärr slut i lager för tillfället`;
+  modalElem.style.display = "block";
+  setTimeout(() => (modalElem.style.display = "none"), 1200);
 };
 
-export const showConfirmationModal = (isPine: boolean, pine?: string) => {
-  const modal = document.querySelector("#modal") as HTMLDivElement;
-  if (isPine) {
-    modal.textContent = `En ${pine} har lagts i din kundkorg.`;
-  } else {
-    modal.textContent = `Tack för att du handlade av oss!`;
-  }
-  modal.style.display = "block";
-  setTimeout(() => {
-    modal.style.display = "none";
-  }, 1200);
+export const findItemInCart = (cart: CartItem[], pineId: string) => {
+  const existingItem = cart.find((item) => item.id === pineId);
+  return existingItem;
+};
+
+export const updateCartItem = (cart: CartItem[], pineId: string) => {
+  const updatedCart = cart.map((item) => {
+    if (item.id === pineId) {
+      return { ...item, amount: item.amount + 1 };
+    }
+    return item;
+  });
+  return updatedCart;
+};
+
+export const addNewCartItem = (
+  cart: CartItem[],
+  pineId: string,
+  pineName: string
+) => {
+  const newItem = { name: pineName, id: pineId, amount: 1 };
+  return [...cart, newItem];
+};
+
+export const checkCurrentStock = (cart: CartItem[], pineId: string) => {
+  let currentStock: number = 5;
+  cart.forEach((item) =>
+    item.id === pineId ? (currentStock -= item.amount) : null
+  );
+  return currentStock;
 };
