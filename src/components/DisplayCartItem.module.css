@@ -2,16 +2,22 @@
   background-color: var(--light-background);
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow: hidden;
   align-items: baseline;
   width: -webkit-fill-available;
   border: 2px outset var(--primary-font-color);
   border-radius: 4px;
   padding: 0 2rem;
 }
+.name {
+  width: min-content;
+  text-overflow: ellipsis;
+}
 .amountTrashContainer {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 .icon {
   color: var(--primary-font-color);

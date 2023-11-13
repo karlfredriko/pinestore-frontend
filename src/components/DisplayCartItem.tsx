@@ -1,14 +1,14 @@
 import { Dispatch, FC, SetStateAction } from "react";
-import { Cart } from "../models/cartItem";
+import { CartItem } from "../models/cartItem";
 import s from "./DisplayCartItem.module.css";
 import { useOutletContext } from "react-router-dom";
 
 type DisplayCartItemProps = {
-  cart: Cart;
+  cart: CartItem;
 };
 type DisplayCartItemContext = {
-  cart: Cart[];
-  setCart: Dispatch<SetStateAction<Cart[]>>;
+  cart: CartItem[];
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
 };
 
 const DisplayCartItem: FC<DisplayCartItemProps> = ({
@@ -23,7 +23,7 @@ const DisplayCartItem: FC<DisplayCartItemProps> = ({
 
   return (
     <div className={s.container}>
-      <h2>{name}</h2>
+      <h2 className={s.name}>{name}</h2>
       <div className={s.amountTrashContainer}>
         <h3>{amount} st</h3>
         <i onClick={removeItemHandler} className={`${fontAwesome} ${s.icon}`} />

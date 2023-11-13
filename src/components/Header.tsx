@@ -1,12 +1,12 @@
 import ShoppingCartIcon from "./ShoppingCartIcon";
-import { Cart } from "../models/cartItem";
+import { CartItem } from "../models/cartItem";
 import { Link } from "react-router-dom";
 import { FC, useEffect, useState } from "react";
 import { getStoreData } from "../utils/httpClient";
 import { StoreInfo } from "../models/storeInfo";
 
 type HeaderProps = {
-  cart: Cart[];
+  cart: CartItem[];
 };
 
 const Header: FC<HeaderProps> = ({ cart }) => {

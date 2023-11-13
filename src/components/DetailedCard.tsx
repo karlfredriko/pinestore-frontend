@@ -48,7 +48,7 @@ const DetailedCard: FC<DetailedCardProps> = ({ pine, cart, setCart }) => {
   };
   useEffect(() => {
     setCurrentStock(checkCurrentStock(cart, id));
-  }, [currentStock]);
+  }, [cart]);
 
   return (
     <>

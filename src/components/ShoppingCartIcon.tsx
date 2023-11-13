@@ -1,9 +1,9 @@
 import s from "./ShoppingCartIcon.module.css";
-import { Cart } from "../models/cartItem";
+import { CartItem } from "../models/cartItem";
 import { FC, useEffect, useState } from "react";
 
 type ShoppingCartIconProps = {
-  cart: Cart[];
+  cart: CartItem[];
 };
 
 const ShoppingCartIcon: FC<ShoppingCartIconProps> = ({ cart }) => {

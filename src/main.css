@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
 
   --primary-font-color: #213547;
@@ -35,6 +35,7 @@ h1 {
 .modal {
   display: none;
   background-color: #ffffff;
+  margin: 1rem;
   padding: 1rem;
   border: var(--primary-font-color) solid 1px;
   font-weight: 600;
@@ -52,8 +53,6 @@ main {
   margin: 0 1rem;
   justify-content: center;
   max-width: 1325px;
-  /* min-height: 74vh; */
-  /* height: -webkit-fill-available; */
 }
 @media (min-width: 1357px) {
   main {
