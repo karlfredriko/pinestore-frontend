@@ -22,9 +22,7 @@ header div {
 }
 .logo {
   height: 80px;
-}
-@media (max-width: 410px) {
-  .logo {
+  @media (max-width: 410px) {
     display: none;
   }
 }
@@ -50,13 +48,11 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 0 1rem;
+  margin: 1rem;
   justify-content: center;
   max-width: 1325px;
-}
-@media (min-width: 1357px) {
-  main {
-    margin: 0 auto;
+  @media (min-width: 1357px) {
+    margin: 1rem auto;
   }
 }
 h2 {
