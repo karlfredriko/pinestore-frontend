@@ -17,9 +17,7 @@ const Root = () => {
     <>
       <Header cart={cart} />
       <main>
-        <div id="modal" className="modal">
-          "Not the bees, NOT THE BEEES, AAARGH!"
-        </div>
+        <div id="modal" className="modal"></div>
         <Outlet context={{ pineList, cart, setCart }} />
       </main>
     </>

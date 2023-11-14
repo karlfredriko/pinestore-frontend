@@ -2,7 +2,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
 import { CartItem } from "../models/cartItem";
 import DisplayCartItem from "../components/DisplayCartItem";
-import { closeTheDealModal } from "../utils/helper";
+import { showModalMsg } from "../utils/helper";
 
 type CartPageContext = {
   cart: CartItem[];
@@ -16,7 +16,7 @@ const CartPage = () => {
   const closeDealHandler = () => {
     setCart([]);
     navigate("/");
-    closeTheDealModal();
+    showModalMsg("Tack för ditt köp och välkommen åter");
   };
 
   return (

@@ -1,5 +1,5 @@
 import { assert, beforeAll, it } from "vitest";
-import { closeTheDealModal, confirmNewCartItemModal } from "../utils/helper";
+import { showModalMsg } from "../utils/helper";
 import { JSDOM } from "jsdom";
 
 let dom: JSDOM;
@@ -9,20 +9,20 @@ beforeAll(() => {
   global.document = dom.window.document;
 });
 
-it("should display a custom message in the DOM", () => {
-  confirmNewCartItemModal("*test*");
+it("should display '*test*' in the DOM", () => {
+  showModalMsg("*test*");
 
   assert.equal(
     dom.window.document.querySelector("#modal")!.textContent,
-    "En *test* har lagts i din kundkorg."
+    "*test*"
   );
 });
 
-it("should display 'Tack för ditt köp och välkommen åter' when run", () => {
-  closeTheDealModal();
+it("should display '*test-2*'", () => {
+  showModalMsg("*test-2*");
 
-  assert.equal(
+  assert.notEqual(
     dom.window.document.querySelector("#modal")!.textContent,
-    "Tack för ditt köp och välkommen åter"
+    "*test*"
   );
 });

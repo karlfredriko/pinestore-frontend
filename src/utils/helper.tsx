@@ -1,22 +1,8 @@
 import { CartItem } from "../models/cartItem";
 
-export const closeTheDealModal = () => {
+export const showModalMsg = (msg: string) => {
   const modalElem = document.querySelector("#modal") as HTMLDivElement;
-  modalElem.textContent = `Tack för ditt köp och välkommen åter`;
-  modalElem.style.display = "block";
-  setTimeout(() => (modalElem.style.display = "none"), 1200);
-};
-
-export const confirmNewCartItemModal = (pineName: string) => {
-  const modalElem = document.querySelector("#modal") as HTMLDivElement;
-  modalElem.textContent = `En ${pineName} har lagts i din kundkorg.`;
-  modalElem.style.display = "block";
-  setTimeout(() => (modalElem.style.display = "none"), 1200);
-};
-
-export const outOfStockModal = (pineName: string) => {
-  const modalElem = document.querySelector("#modal") as HTMLDivElement;
-  modalElem.textContent = `${pineName} är tyvärr slut i lager för tillfället`;
+  modalElem.textContent = `${msg}`;
   modalElem.style.display = "block";
   setTimeout(() => (modalElem.style.display = "none"), 1200);
 };

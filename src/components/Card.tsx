@@ -5,9 +5,8 @@ import { FC, MouseEvent, Dispatch, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   addNewCartItem,
-  confirmNewCartItemModal,
   findItemInCart,
-  outOfStockModal,
+  showModalMsg,
   updateCartItem,
 } from "../utils/helper";
 
@@ -25,18 +24,16 @@ const Card: FC<CardProps> = ({ item, cart, setCart }) => {
   const putInCartHandler = (e: MouseEvent<HTMLButtonElement>): void => {
     const pineId = e.currentTarget.parentElement!.id;
     const pineName = e.currentTarget.nextElementSibling!.textContent;
+    let modalMessage: string = `En ${pineName} har lagts i din kundkorg.`;
     if (pineName) {
       const existingItem = findItemInCart(cart, pineId);
-      if (!existingItem) {
-        setCart(addNewCartItem(cart, pineId, pineName));
-        confirmNewCartItemModal(pineName);
-      }
-      if (existingItem) {
+      if (!existingItem) setCart(addNewCartItem(cart, pineId, pineName));
+      if (existingItem)
         if (existingItem?.amount !== stock)
           setCart(updateCartItem(cart, pineId));
-        else outOfStockModal(pineName);
-      }
+        else modalMessage = `${pineName} är tyvärr slut i lager för tillfället`;
     }
+    showModalMsg(modalMessage);
   };
 
   const moreInfoHandler = (e: MouseEvent<HTMLButtonElement>) => {
